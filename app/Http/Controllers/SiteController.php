@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Cliente;
 use App\Slide;
 use App\Noticia;
 use App\Http\Requests;
@@ -17,8 +18,9 @@ class SiteController extends Controller {
 	public function index()
 	{
         return view('site.inicio', array(
-            'noticias'  => Noticia::orderBy('id', 'desc')->take(3)->get(),
-            'slide'     => Slide::orderBy('ordem', 'desc')->take(1)->get()
+            'noticias'  => Noticia::orderBy('id', 'desc')->take(6)->get(),
+            'slides'     => Slide::orderBy('ordem', 'desc')->take(6)->get(),
+            'clientes'     => Cliente::orderBy('id', 'desc')->get()
         ));
 	}
 

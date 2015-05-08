@@ -9,7 +9,5 @@ class Slide extends Model {
 
     public $errors;
     protected $table = 'slides';
-    protected $fillable = ['titulo', 'descricao', 'imgUrl', 'botao', 'botaoUrl', 'ordem', 'status'];
-
-
+    protected $fillable = ['titulo', 'descricao', 'imgUrl', 'botao', 'botaoUrl', 'botaoTexto', 'ordem', 'status'];
 }

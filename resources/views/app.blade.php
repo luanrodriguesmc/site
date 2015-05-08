@@ -42,9 +42,10 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    @if(!Auth::guest())
                     <ul class="nav navbar-nav">
-                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/admin">Inicio</a></li>
                         <li><a href="{{ action('SlideController@index') }}">Slides</a></li>
                         <li><a href="{{ action('NoticiaController@index') }}">Notícias</a></li>
+                        <li><a href="{{ action('ClienteController@index') }}">Clientes</a></li>
                     </ul>
                 @endif
 				<ul class="nav navbar-nav navbar-right">

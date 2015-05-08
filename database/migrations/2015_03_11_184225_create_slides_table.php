@@ -20,6 +20,7 @@ class CreateSlidesTable extends Migration {
             $table->string('descricao','200');
             $table->string('botao','1');
             $table->string('botaoUrl','200');
+            $table->string('botaoTexto','50');
             $table->string('ordem','2');
             $table->string('status','1');
 			$table->timestamps();

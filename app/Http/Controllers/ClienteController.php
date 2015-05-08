@@ -1,16 +1,17 @@
 <?php namespace App\Http\Controllers;
 
-use App\Slide;
+use App\Cliente;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
-use App\Http\Requests\SlideRequest;
-use App\Http\Requests\ArquivoRequest;
+use App\Http\Requests\ClienteRequest;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
-class SlideController extends Controller {
+class ClienteController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -19,8 +20,8 @@ class SlideController extends Controller {
 	 */
 	public function index()
 	{
-        return view('slides.list', array(
-            'slides' => Slide::orderBy('ordem', 'asc')->paginate(20)
+        return view('clientes.list', array(
+            'clientes' => Cliente::orderBy('id', 'asc')->paginate(20)
         ));
 	}
 
@@ -31,7 +32,7 @@ class SlideController extends Controller {
 	 */
 	public function create()
 	{
-        return view('slides.create');
+        return view('clientes.create');
 	}
 
 	/**
@@ -39,7 +40,7 @@ class SlideController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(SlideRequest $request)
+	public function store(ClienteRequest $request)
 	{
         $file = \Request::file('arquivo');
         $ext = $file->getClientOriginalExtension();
@@ -49,8 +50,8 @@ class SlideController extends Controller {
         $request->merge(array('imgUrl'    => $newnome.'.'.$ext));// grava o nome original do arquivo
 
 
-        Slide::create($request->all());
-        return \Redirect::to('slide');
+        Cliente::create($request->all());
+        return \Redirect::to('cliente');
 	}
 
 	/**
@@ -61,8 +62,8 @@ class SlideController extends Controller {
 	 */
 	public function show($id)
 	{
-        return view('slides.show', array(
-            'slide'   => Slide::findOrFail($id)
+        return view('clientes.show', array(
+            'cliente'   => Cliente::findOrFail($id)
         ));
 	}
 
@@ -74,8 +75,8 @@ class SlideController extends Controller {
 	 */
 	public function edit($id)
 	{
-        return view('slides.edit', array(
-            'slide'   => Slide::findOrFail($id)
+        return view('clientes.edit', array(
+            'cliente'   => Cliente::findOrFail($id)
         ));
 	}
 
@@ -85,11 +86,11 @@ class SlideController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update($id, SlideRequest $request)
+    public function update($id, ClienteRequest $request)
     {
-        $slide = Slide::findOrFail($id);
-        $slide->update($request->all());
-        return \Redirect::to('slide/'.$id);
+        $cliente = Cliente::findOrFail($id);
+        $cliente->update($request->all());
+        return \Redirect::to('cliente/'.$id);
     }
 
 	/**
@@ -98,11 +99,11 @@ class SlideController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function destroy($id)
-    {
-        $slide = Slide::find($id);
-        $slide->delete();
-        return \Redirect::to('slide');
-    }
+	public function destroy($id)
+	{
+        $cliente = Cliente::find($id);
+        $cliente->delete();
+        return \Redirect::to('cliente');
+	}
 
 }

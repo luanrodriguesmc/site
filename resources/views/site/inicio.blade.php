@@ -1,313 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+
     <title>Mconsult</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
 
-    <!--[if lte IE 8]>
-    <script src="{!! asset('assets/js/html5shiv.js') !!}"></script><![endif]-->
-    <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/skel.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/skel-layers.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/init.js') !!}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{!! asset('assets/css/skel.css') !!}"/>
-    <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}"/>
-    <link rel="stylesheet" href="{!! asset('assets/css/style-xlarge.css') !!}"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    <style>
-        #map-canvas {
-            width: 100%;
-            height: 400px;
-        }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-        function initialize() {
-            var mapCanvas = document.getElementById('map-canvas');
-            var mapOptions = {
-                center: new google.maps.LatLng(-3.735878, -38.490055),
-                zoom: 15,
-                scrollwheel: false,
-                title: "Praça da Cidade",
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            var map = new google.maps.Map(mapCanvas, mapOptions)
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(-3.735878, -38.490055),
-                map: map
-            });
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <link href="{!! asset('assets/css/bootstrap.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('assets/css/style.css') !!}" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
-<body class="landing">
 
-<!-- Header -->
-<header id="header">
-    <h1><img class="logomarca" src="{!! asset('assets/images/logo.png') !!}"/></h1>
-    <nav id="nav">
-        <ul>
-            <li><a href="http://mconsult.com.br/">Inicio</a></li>
-            <li><a href="http://mconsult.com.br/empresa">A Mconsult</a></li>
-            <li><a href="http://mconsult.com.br/clientes">Clientes</a></li>
-            <li><a href="http://mconsult.com.br/produtoseservicos">Produtos e Serviços</a></li>
-            <li><a href="http://mconsult.com.br/contato">Contato</a></li>
-        </ul>
-    </nav>
-</header>
+<body>
 
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="..." alt="...">
-
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-        <div class="item">
-            <img src="..." alt="...">
-
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-        ...
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-
-<!-- Banner -->
-<section id="banner">
-    @foreach($slide as $item)
-    <h2>{!! $item->titulo !!}</h2>
-
-    <p>{!! $item->descricao !!}</p>
-    @endforeach
-</section>
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="..." alt="...">
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-        <div class="item">
-            <img src="..." alt="...">
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- One -->
-<section id="one" class="wrapper style1 special">
-    <div class="container">
-        <div class="row 150%">
-            @foreach($noticias as $noticia)
-            <div class="4u 12u$(medium)">
-                <section class="box">
-                    <i class="icon big rounded {!! $noticia->cor !!} {!! $noticia->icone !!}"></i>
-
-                    <h3>{!! $noticia->indexTitulo !!}</h3>
-
-                    <p>{!! $noticia->indexDescricao !!}</p>
-                    @if($noticia->botao == 'S')
-                    <a href="noticia/{!! $noticia->slug !!}" class="button special">Ler +</a>
-                    @endif
-                </section>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- Two -->
-<section id="two" class="wrapper style2 special">
-    <div class="container">
-        <header class="major">
-            <p>Estas são as empresas que confiam na Mconsult!</p>
-        </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam dolore illum, temporibus veritatis
-            eligendi, aliquam, dolor enim itaque veniam aut eaque sequi qui quia vitae pariatur repudiandae
-            abdignissimos ex!</p>
-        <hr>
-        <section>
-            <div class="row">
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/rm.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/maranata.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/eum.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u$ 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/ibr.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-            </div>
-            <div class="row">
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/logran.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/vonixx.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/motoliner.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u$ 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/termaco.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-            </div>
-            <div class="row">
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/hlsn.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/cnn.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u 6u(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/sacoplast.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-                <section class="3u$ 6u$(medium) 12u$(xsmall)">
-                    <img src="{!! asset('assets/images/diamante.jpg') !!}" class="img-responsive img-thumbnail"/>
-                </section>
-            </div>
-        </section>
-        <hr>
-    </div>
-</section>
-
-<!-- Three -->
-<section id="contato" class="wrapper style3 special">
-    <div class="container">
-        <header class="major">
-            <h2>A Mconsult quer te ouvir</h2>
-
-            <p>Nós que fazemos a Mconsult, gostariamos de ouvir o que você tem para dizer, envie sugestões, críticas ou
-                dúvidas.</p>
-        </header>
-    </div>
-    <div class="container 50%">
-        <form action="#" method="post">
-            <div class="row uniform">
-                <div class="6u 12u$(small)">
-                    <input name="name" id="name" value="" placeholder="Nome" type="text">
+<div class="container" id="intro">
+    <div class="navbar-wrapper">
+        <nav id="menu-mconsult" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="logo-mc"></a>
                 </div>
-                <div class="6u$ 12u$(small)">
-                    <input name="email" id="email" value="" placeholder="Email" type="email">
-                </div>
-                <div class="12u$">
-                    <textarea name="message" id="message" placeholder="Mensagem" rows="6"></textarea>
-                </div>
-                <div class="12u$">
-                    <ul class="actions">
-                        <li><input value="Enviar Mensagem" class="special big" type="submit"></li>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Inicio</a></li>
+                        <li><a href="">Sobre</a></li>
+                        <li><a href="">Clientes</a></li>
+                        <li><a href="">Contato</a></li>
                     </ul>
                 </div>
             </div>
-        </form>
+        </nav>
     </div>
-</section>
-<div id="map-canvas"></div>
+</div>
 
-<!-- Footer -->
-<footer id="footer">
-    <div class="container">
-        <section class="links">
-            <div class="row">
-                <section class="col-md-4">
-                    <address>
-                        Mconsult LTDA<br>
-                        Pátio Dom Luís<br>
-                        Av. Dom Luís, 1200, Sala 2104, <abbr title="Bairro">Aldeota</abbr><br>
-                        Fortaleza-CE<br>
-                        <abbr title="Telefone"><span class="glyphicon glyphicon-earphone"></span></abbr> (85)
-                        3044-4978<br>
-                        <abbr title="Email"><span class="glyphicon glyphicon-envelope"></span></abbr> <a
-                            href="#contato">contato@mconsult.com.br</a><br>
-                    </address>
-                </section>
-                <section>
-                    <div class="col-md-8 hidden-xs hidden-sm">
-                        <div class="fb-like-box" data-href="https://www.facebook.com/mossoroconsult" data-width="550"
-                             data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false"
-                             data-show-border="false"></div>
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @for($i = 0; $i < count($slides); $i++)
+            @if($i == 0)
+                <li data-target="#myCarousel" data-slide-to="{!! $i !!}" class="active"></li>
+            @else
+                <li data-target="#myCarousel" data-slide-to="{!! $i !!}"></li>
+            @endif
+        @endfor
+    </ol>
+    <div class="carousel-inner" role="listbox" >
+        @for($i = 0; $i < count($slides); $i++)
+            @if($i == 0)
+                <div class="item active">
+            @else
+                <div class="item">
+            @endif
+                <img class="first-slide" src="{!! asset('assets/img/'.$slides[$i]->imgUrl) !!}" alt="{!! $slides[$i]->titulo !!}">
+                <div class="container" >
+                    <div class="carousel-caption">
+                        <h1>{!! $slides[$i]->titulo !!}</h1>
+                        <p>{!! $slides[$i]->descricao !!}</p>
+                        @if($slides[$i]->botao == 'S')
+                            <p><a class="btn btn-lg btn-primary" href="{!! $slides[$i]->botaoUrl !!}" role="button">{!! $slides[$i]->botaoTexto !!}</a></p>
+                        @endif
                     </div>
-                </section>
+                </div>
             </div>
-        </section>
-        <div class="row">
-            <div class="8u 12u$(medium)">
-                <ul class="copyright">
-                    <li>&copy; Mconsult. Todos os direitos reservados.</li>
-                </ul>
-            </div>
-            <div class="4u$ 12u$(medium)">
-                <ul class="icons">
-                    <li>
-                        <a href="https://www.facebook.com/mossoroconsult" class="icon fa-facebook"><span class="label">Facebook</span></a>
-                    </li>
-                    <li>
-                        <a class="icon fa-instagram"><span class="label">Facebook</span></a>
-                    </li>
-                    <li>
-                        <a class="icon fa-linkedin"><span class="label">LinkedIn</span></a>
-                    </li>
-                </ul>
-            </div>
+        @endfor
+    </div>
+</div><!-- /.carousel -->
+
+
+<div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        @foreach($noticias as $noticia)
+            <div class="col-lg-4">
+                <div class="box-noticia">
+                    <i class="icon big rounded color1  fa {!! $noticia->icone !!}"></i>
+                    <h2>{!! $noticia->indexTitulo !!}</h2>
+                    <p>{!! $noticia->indexDescricao !!}</p>
+                    @if($noticia->botao == 'S')
+                        <p><a class="btn btn-default" href="noticia/{!! $noticia->slug !!}" role="button">Ler Mais  &raquo;</a></p>
+                    @endif
+                </div>
+            </div><!-- /.col-lg-4 -->
+        @endforeach
+    </div><!-- /.row -->
+
+
+</div><!-- /.container -->
+
+<div class="container-fluid clientes">
+    <div class="container">
+        <div class="text-center">
+            <h3>CLIENTES</h3>
+            <ul class="list-inline">
+                @foreach($clientes as $cliente)
+                    <li><img src="{!! asset('assets/img/'.$cliente->imgUrl) !!}" alt="Dohler"></li>
+                @endforeach
+            </ul>
         </div>
     </div>
+</div>
+
+<div class="container-fluid contato">
+    <div class="container">
+        <div class="text-center">
+            <h3>CONTATO</h3>
+
+            <form class="form-contato">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nome" class="sr-only">Nome</label>
+                            <input type="nome" class="form-control" id="nome" name="nome" placeholder="Nome">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="msg" class="sr-only">Mensagem</label>
+                            <textarea class="form-control" id="msg" name="msg" placeholder="Sua mensagem..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-info btn-lg">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="map-canvas"></div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>
+        <address>
+            Pátio Dom Luís &middot; Av. Dom Luís, 1200 &middot; Sala 2104 &middot; Aldeota<br />Fortaleza-CE<br/>
+            <abbr title="Telefone"><span class="glyphicon glyphicon-earphone"></span></abbr> (85) 3044-4978<br>
+            <abbr title="Email"><span class="glyphicon glyphicon-envelope"></span></abbr> <a href="mailto:#">contato@mconsult.com.br</a><br>
+        </address></p>
+        <p>&copy; 2015 Mconsult.</p>
+        <p class="social-icons">
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </p>
+    </div>
 </footer>
+
+<script src="{!! asset('assets/js/jquery-1.11.2.min.js') !!}"></script>
+<script src="{!! asset('assets/js/bootstrap.min.js') !!}"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+
+    function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+            center: new google.maps.LatLng(-3.735878, -38.490055),
+            zoom: 15,
+            scrollwheel: false,
+            title:"Praça da Cidade",
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-3.735878, -38.490055),
+            map: map
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 </body>
 </html>

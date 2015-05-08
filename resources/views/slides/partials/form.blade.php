@@ -33,10 +33,14 @@
         ), null, ['class' => 'form-control']);
         !!}
     </div>
-    <div class="form-group col-md-6">
-            {!! Form::label('botaoUrl','Link do Botão ?') !!}
-            {!! Form::url('botaoUrl',null,['class' => 'form-control', 'autocomplete' => 'off']) !!}
-        </div>
+    <div class="form-group col-md-2">
+        {!! Form::label('botaoTexto','Texto do Botão ?') !!}
+        {!! Form::url('botaoTexto',null,['class' => 'form-control', 'autocomplete' => 'off']) !!}
+    </div>
+    <div class="form-group col-md-4">
+        {!! Form::label('botaoUrl','Link do Botão ?') !!}
+        {!! Form::url('botaoUrl',null,['class' => 'form-control', 'autocomplete' => 'off']) !!}
+    </div>
     <div class="form-group col-md-2">
         {!! Form::label('status','Ativo ?') !!}
         {!! Form::select('status', array(

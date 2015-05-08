@@ -93,9 +93,11 @@ class NoticiaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
-	{
-		//
-	}
+    public function destroy($id)
+    {
+        $noticia = Noticia::find($id);
+        $noticia->delete();
+        return \Redirect::to('noticia');
+    }
 
 }

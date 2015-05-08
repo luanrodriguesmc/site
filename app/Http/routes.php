@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin', 'HomeController@index');
     Route::resource('slide'       , 'SlideController');
     Route::resource('noticia'       , 'NoticiaController');
+    Route::resource('cliente'       , 'ClienteController');
 });
 
 Route::controllers([
